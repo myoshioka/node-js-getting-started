@@ -9,6 +9,14 @@ const app = express()
       .get('/', (req, res) => res.render('pages/index'))
       .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
+app.get('/log/', (req, res) => {
+    console.log(req.body);
+    console.log(req.headers);
+    let response = {status:'ok'};
+    res.send(response);
+});
+
+
 app.post('/log/', (req, res) => {
     console.log(req.body);
     console.log(req.headers);
